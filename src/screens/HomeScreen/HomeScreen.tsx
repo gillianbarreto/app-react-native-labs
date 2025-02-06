@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 
-import { ImageCarousel } from "../../components/ImageCarousel/ImageCarousel";
-import { getTravelDestiny } from "../../services/destiny";
-import { ExploreCarousel } from "../../components/ExploreCarousel/ExploreCarousel";
+import { ImageCarousel, ExploreCarousel } from "./components";
+import { getTravelDestiny } from "@services/destiny";
+import ScreenWrapper from "@components";
 
 export const HomeScreen = () => {
   const title = "MyTinerary";
@@ -15,13 +15,13 @@ export const HomeScreen = () => {
   }, []);
 
   return (
-    <>
+    <ScreenWrapper>
       <ExploreCarousel
         title={title}
         subTitle={subTitle}
         action={action}
       ></ExploreCarousel>
       <ImageCarousel data={destinies}></ImageCarousel>
-    </>
+   </ScreenWrapper>
   );
 };

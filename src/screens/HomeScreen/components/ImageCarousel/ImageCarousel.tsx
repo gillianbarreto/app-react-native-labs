@@ -1,13 +1,11 @@
-import { Dimensions, Image, Text, View, StyleSheet } from "react-native";
 import React from "react";
+import { Dimensions, Image, Text, View, StyleSheet } from "react-native";
 import Carousel from "react-native-reanimated-carousel";
 
+import { City } from "@interfaces/destiny";
+
 interface Props {
-  data: CarouselData[];
-}
-interface CarouselData {
-  name: string;
-  imageUrl: string;
+  data: City[];
 }
 
 export const ImageCarousel = ({ data }: Props) => {

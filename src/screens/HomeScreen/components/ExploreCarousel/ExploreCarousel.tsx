@@ -1,5 +1,5 @@
-import { Pressable, Text, View, StyleSheet } from "react-native";
 import React from "react";
+import { Pressable, Text, View, StyleSheet } from "react-native";
 
 interface Props {
   title: string;
@@ -23,19 +23,19 @@ const styles = StyleSheet.create({
   container: {
     display: "flex",
     marginTop: 80,
-    gap: 10,
+    gap: 5,
     alignContent: "center",
     justifyContent: "center",
   },
   title: {
     fontSize: 20,
     fontWeight: 700,
-    color: "#21618c",
+    color: "#144af1",
   },
   subTitle: {
     fontSize: 14,
     fontWeight: 400,
-    color: "#2874a6",
+    color: "#144af1",
   },
   button: {
     backgroundColor: "#27ae60",

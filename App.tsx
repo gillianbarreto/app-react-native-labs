@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View } from "react-native";
-import { HomeScreen } from "./src/pages/HomeScreen/HomeScreen";
+
+import { HomeScreen } from "@screens";
 
 export default function App() {
   return (
