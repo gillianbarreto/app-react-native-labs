@@ -1,19 +1,26 @@
 import React, { useEffect, useState } from "react";
 
 import { ImageCarousel, ExploreCarousel } from "./components";
-import { getTravelDestiny } from "@services/destiny";
 import ScreenWrapper from "@components";
+import useDestinations from "@hooks/useDestinations";
+import { Destinations } from "@services";
+import Loading from "@components/loading/Loading";
 
 export const HomeScreen = () => {
   const title = "MyTinerary";
   const subTitle = "Find your perfect travel itinerary";
   const action = "Explore";
 
-  const [destinies, setDestinies] = useState([]);
-  useEffect(() => {
-    getTravelDestiny().then((data) => setDestinies(data as []));
-  }, []);
+  const { queryAllDestinations } = useDestinations();
+  const [destinations, setDestinations] = useState<Destinations[]>([]);
 
+  useEffect(() => {
+    setDestinations(queryAllDestinations.data || []);
+  }, [queryAllDestinations.data]);
+
+  if (queryAllDestinations.isLoading) {
+    return (<Loading></Loading>);
+  }
   return (
     <ScreenWrapper>
       <ExploreCarousel
@@ -21,7 +28,7 @@ export const HomeScreen = () => {
         subTitle={subTitle}
         action={action}
       ></ExploreCarousel>
-      <ImageCarousel data={destinies}></ImageCarousel>
-   </ScreenWrapper>
+      <ImageCarousel data={destinations}></ImageCarousel>
+    </ScreenWrapper>
   );
 };

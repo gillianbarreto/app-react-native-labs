@@ -1,2 +1,2 @@
 export * from './HomeScreen/HomeScreen';
-export * from './CitiesScreen/CitiesScreen';
+export * from './DestinationsScreen/DestinationsScreen';

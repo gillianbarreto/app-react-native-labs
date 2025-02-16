@@ -16,9 +16,9 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
-        name="cities"
+        name="destinations"
         options={{
-          title: "Ciudades",
+          title: "Destinos",
           tabBarIcon: () => <Ionicons name="image" size={24} color="#336eff"/>,
         }}
       />

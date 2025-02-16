@@ -16,6 +16,7 @@ export default function ScreenWrapper({ style, ...rest }: Props) {
           justifyContent: "center",
           alignItems: "center",
           backgroundColor: "#fff",
+          padding: 20,
         },
         style,
       ]}

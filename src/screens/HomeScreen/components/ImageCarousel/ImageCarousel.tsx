@@ -2,10 +2,10 @@ import React from "react";
 import { Dimensions, Image, Text, View, StyleSheet } from "react-native";
 import Carousel from "react-native-reanimated-carousel";
 
-import { City } from "@interfaces/destiny";
+import { Destinations } from "@services";
 
 interface Props {
-  data: City[];
+  data: Destinations[];
 }
 
 export const ImageCarousel = ({ data }: Props) => {
@@ -26,8 +26,8 @@ export const ImageCarousel = ({ data }: Props) => {
             <Text style={styles.title}>{item.name}</Text>
             <Image
               style={styles.image}
-              source={{ uri: item.imageUrl }}
-              resizeMode="contain"
+              source={{ uri: item.image }}
+              resizeMode="cover"
             />
           </View>
         )}
@@ -51,15 +51,16 @@ const styles = StyleSheet.create({
   },
   image: {
     width: 370,
-    height: 300,
+    height: 250,
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
+    backgroundColor: "#f2f3f4",
   },
   title: {
     textAlign: "center",
     fontSize: 20,
     fontWeight: 700,
-    color: "#21618c",
+    color: "#144af1",
     marginTop: 10,
   },
 });

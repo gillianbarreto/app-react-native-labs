@@ -3,18 +3,18 @@ import { View, Text, StyleSheet, Image, Pressable } from "react-native";
 import { Link } from "expo-router";
 
 interface Props {
+  id: string;
   name: string;
   image: string;
 }
 
-export const CityCard = ({ name, image }: Props) => {
+export const DestinationCard = ({ id, name, image }: Props) => {
   return (
     <Link
-      key={name}
+      key={id}
       asChild
       href={{
-        pathname: `/${name}`,
-        params: { image },
+        pathname: `/${id}`,
       }}
     >
       <Pressable>
@@ -23,7 +23,7 @@ export const CityCard = ({ name, image }: Props) => {
           <Image
             style={styles.image}
             source={{ uri: image }}
-            resizeMode="contain"
+            resizeMode="cover"
           />
         </View>
       </Pressable>
@@ -35,18 +35,19 @@ const styles = StyleSheet.create({
   card: {
     flex: 1,
     cursor: "pointer",
-    marginTop: 20,
+    marginTop: 10,
   },
   title: {
     textAlign: "center",
     fontSize: 20,
     fontWeight: 700,
-    color: "#21618c",
-    marginBottom: 10,
+    color: "#144af1",
+    marginBottom: 5,
   },
   image: {
     width: 185,
     height: 150,
     borderRadius: 10,
+    backgroundColor: "#f2f3f4",
   },
 });
