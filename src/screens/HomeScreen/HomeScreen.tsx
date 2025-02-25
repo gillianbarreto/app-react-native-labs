@@ -2,9 +2,13 @@ import React, { useEffect, useState } from "react";
 
 import { ImageCarousel, ExploreCarousel } from "./components";
 import ScreenWrapper from "@components";
-import useDestinations from "@hooks/useDestinations";
+import useDestinations from "src/store/hooks/useDestinations";
 import { Destinations } from "@services";
 import Loading from "@components/loading/Loading";
+
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 export const HomeScreen = () => {
   const title = "MyTinerary";
@@ -22,13 +26,15 @@ export const HomeScreen = () => {
     return (<Loading></Loading>);
   }
   return (
-    <ScreenWrapper>
-      <ExploreCarousel
-        title={title}
-        subTitle={subTitle}
-        action={action}
-      ></ExploreCarousel>
-      <ImageCarousel data={destinations}></ImageCarousel>
-    </ScreenWrapper>
+    <QueryClientProvider client={queryClient}>
+      <ScreenWrapper>
+        <ExploreCarousel
+          title={title}
+          subTitle={subTitle}
+          action={action}
+        ></ExploreCarousel>
+        <ImageCarousel data={destinations}></ImageCarousel>
+      </ScreenWrapper>
+    </QueryClientProvider>
   );
 };
